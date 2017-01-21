@@ -89,7 +89,7 @@ public class Class293 {
             var5 += var0.readUnsignedByte(2054108970) << 16;
          }
 
-         Class704.decodePlayerFlags(var0, var3, var4, var5, 469660674);
+         Class704.decodePlayerUpdateFlags(var0, var3, var4, var5, 469660674);
       }
 
    }

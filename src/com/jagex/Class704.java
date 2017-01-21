@@ -607,7 +607,7 @@ public class Class704 {
       Class52.aClass702_664.method8176(var3, -43955660);
    }
 
-   static final void decodePlayerFlags(Buffer var0, int var1, Class639_Sub1_Sub2_Sub1_Sub1 player, int var3, int var4) {
+   static final void decodePlayerUpdateFlags(Buffer var0, int var1, Class639_Sub1_Sub2_Sub1_Sub1 player, int var3, int var4) {
       int var5;
       int[] var6;
       int[] var7;
