@@ -2703,7 +2703,7 @@ public class PacketFrameDecoder {
 																										Class457.aBool5160 = var68;
 																										connection.CURRENT_FRAME = null;
 																										return true;
-																									} else if (IncomingFrame.aClass420_4673 == connection.CURRENT_FRAME) {
+																									} else if (IncomingFrame.LOGOUT == connection.CURRENT_FRAME) {
 																										Class460_Sub1.logout(false, -1730576285);
 																										connection.CURRENT_FRAME = null;
 																										return false;

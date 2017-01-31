@@ -175,7 +175,7 @@ public class IncomingFrame {
 	public static IncomingFrame RESET_NIS_VARS = new IncomingFrame(147, 0);
 	public static IncomingFrame aClass420_4671 = new IncomingFrame(148, 3);
 	public static IncomingFrame REFRESH_WORLD_LIST = new IncomingFrame(149, -2);
-	public static IncomingFrame aClass420_4673 = new IncomingFrame(150, 0);
+	public static IncomingFrame LOGOUT = new IncomingFrame(150, 0);
 	public static IncomingFrame aClass420_4690 = new IncomingFrame(151, 5);
 	public static IncomingFrame aClass420_4686 = new IncomingFrame(152, 4);
 	public static IncomingFrame OTHER_PLAYER_ON_INTERFACE = new IncomingFrame(153, 10);

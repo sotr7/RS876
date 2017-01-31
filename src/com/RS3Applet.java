@@ -93,8 +93,8 @@ public class RS3Applet extends Applet implements AppletStub {
 	 */
 	public JFrame clientFrame = null;
 	
-	public static double CLIENT_BUILD = 0.6;
-	public static String CLIENT_TITLE = "Alpha";
+	public static double CLIENT_BUILD = 0.7;
+	public static String CLIENT_TITLE = "Beta";
 
 	/**
 	 * The main entry point of the current application.
