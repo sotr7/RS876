@@ -2,7 +2,6 @@ package com.jagex;
 
 import java.math.BigInteger;
 
-import com.Launcher;
 import com.jagex.twitchtv.TwitchEvent;
 import com.jagex.twitchtv.TwitchEventLiveStreams;
 import com.jagex.twitchtv.TwitchEventResult;
@@ -28,7 +27,8 @@ public class Class459 {
 		if (65 != var6.length && 64 != var6.length) {
 			throw new RuntimeException();
 		} else {
-			if (!Launcher.connectNocturne) {
+			boolean aBoolean13199 = true;
+			if (aBoolean13199) {
 				byte[] var14 = Class200.method2872(var1.buffer, 5, 301018015
 						* var1.pos - var5.length - 5, -1542931636);
 

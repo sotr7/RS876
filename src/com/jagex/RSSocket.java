@@ -72,7 +72,7 @@ public class RSSocket {
 	}
 
 	public Socket method549(int var1) throws IOException {
-		if (Launcher.connectNocturne)
+		if (Launcher.CONNECTEDNOCTURNE)
 			return new Socket(InetAddress.getByName(address), 43594);
 		return !this.useProxy ? new Socket(InetAddress.getByName(this.address),
 				this.useSecure ? 2050494641 * this.securePort : this.port
