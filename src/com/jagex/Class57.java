@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.RS3Applet;
 import com.jagex.Class115;
 import com.jagex.IsaacCipher;
 import com.jagex.Class16;
@@ -90,8 +91,8 @@ public class Class57 {
                var1.out.writeByte(Class403.aClass403_4155.anInt4153 * -636933581, -789935518);
                var1.out.writeShort(0, -805078716);
                var2 = var1.out.pos * 301018015;
-               var1.out.writeShort(876, -805078716);
-               var1.out.writeShort(1, -805078716);
+               var1.out.writeShort(RS3Applet.REVISION, -805078716);
+               var1.out.writeShort(RS3Applet.SUB_REVISION, -805078716);
                anIntArray685 = Class512.method6186(var1, 23862821);
                int var3 = 301018015 * var1.out.pos;
                var1.out.method9616(client.aString11002, 1175215773);

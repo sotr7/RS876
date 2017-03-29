@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.jagex.IsaacCipher;
+import com.RS3Applet;
 import com.jagex.Class16;
 import com.jagex.Class221;
 import com.jagex.Class230;
@@ -78,8 +79,8 @@ class Class194 implements Interface40 {
                var2.out.writeByte(Class403.aClass403_4155.anInt4153 * -636933581, 100626475);
                var2.out.writeShort(0, -805078716);
                var3 = var2.out.pos * 301018015;
-               var2.out.writeShort(876, -805078716);
-               var2.out.writeShort(1, -805078716);
+               var2.out.writeShort(RS3Applet.REVISION, -805078716);
+               var2.out.writeShort(RS3Applet.SUB_REVISION, -805078716);
                Class57.anIntArray685 = Class512.method6186(var2, -353791464);
                int var4 = 301018015 * var2.out.pos;
                var2.out.method9616(client.aString11002, 1427405332);

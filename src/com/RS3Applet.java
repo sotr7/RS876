@@ -52,6 +52,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class RS3Applet extends Applet implements AppletStub {
+	
+	public static int REVISION = 876;
+	public static int SUB_REVISION = 1;
 
 	/**
 	 * An generated serial UID.
@@ -76,7 +79,7 @@ public class RS3Applet extends Applet implements AppletStub {
 	/**
 	 * Chooses ip based on if Rs or Rsps
 	 */
-	public static String HOST_ADDRESS = RSPS ? "127.0.0.1" : "world2.runescape.com";
+	public static String HOST_ADDRESS = RSPS ? "104.155.26.178" : "world2.runescape.com";
 
 	/**
 	 * Whether or not to dump info such as vars
@@ -93,8 +96,8 @@ public class RS3Applet extends Applet implements AppletStub {
 	 */
 	public JFrame clientFrame = null;
 	
-	public static double CLIENT_BUILD = 0.7;
-	public static String CLIENT_TITLE = "Beta";
+	public static double CLIENT_BUILD = 1.1;
+	public static String CLIENT_TITLE = "Official";
 
 	/**
 	 * The main entry point of the current application.

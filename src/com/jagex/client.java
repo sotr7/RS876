@@ -201,6 +201,7 @@ import com.jagex.OutFrameBuffer;
 import com.jagex.Class526_Sub29;
 import com.jagex.Class526_Sub31;
 import com.jagex.RSByteBuffer;
+import com.RS3Applet;
 import com.jagex.Buffer;
 import com.jagex.Class526_Sub38;
 import com.jagex.Class526_Sub39;
@@ -3048,8 +3049,8 @@ public final class client extends Class499 {
                RSByteBuffer var3 = new RSByteBuffer(var2 + 2);
                var3.writeByte(-636933581 * Class403.aClass403_4148.anInt4153, -417481846);
                var3.writeByte(var2, -1600606223);
-               var3.writeInt(876, -357564953);
-               var3.writeInt(1, -357564953);
+               var3.writeInt(RS3Applet.REVISION, -357564953);
+               var3.writeInt(RS3Applet.SUB_REVISION, -357564953);
                var3.method9616(aString11002, -654401524);
                var3.writeByte(Class26.aClass673_247.anInt8576 * -398271091, -1629658217);
                Class526_Sub21_Sub3.aClass560_11341.write(var3.buffer, 0, 2 + var2, 2099589194);

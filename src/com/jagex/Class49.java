@@ -49,6 +49,7 @@ import com.jagex.Class526;
 import com.jagex.Class526_Sub24;
 import com.jagex.OutFrameBuffer;
 import com.jagex.RSByteBuffer;
+import com.RS3Applet;
 import com.jagex.Buffer;
 import com.jagex.Class53;
 import com.jagex.Class535;
@@ -181,8 +182,8 @@ public class Class49 implements Runnable {
                   var2.out.writeByte(-636933581 * Class403.aClass403_4156.anInt4153, 1992571206);
                   var2.out.writeShort(0, -805078716);
                   var3 = var2.out.pos * 301018015;
-                  var2.out.writeInt(876, -357564953);
-                  var2.out.writeInt(1, -357564953);
+                  var2.out.writeInt(RS3Applet.REVISION, -357564953);
+                  var2.out.writeInt(RS3Applet.SUB_REVISION, -357564953);
                   if(327983535 * Class32.anInt310 == 221) {
                      var2.out.writeByte(-558705405 * client.anInt11038 == 17?1:0, -1844684333);
                   }
@@ -311,8 +312,8 @@ public class Class49 implements Runnable {
                   var5 = var16.pos * 301018015;
                   var6 = 301018015 * var16.pos;
                   if(!Class32.aBool336) {
-                     var16.writeInt(876, -357564953);
-                     var16.writeInt(1, -357564953);
+                     var16.writeInt(RS3Applet.REVISION, -357564953);
+                     var16.writeInt(RS3Applet.SUB_REVISION, -357564953);
                      var16.writeByte(17 == -558705405 * client.anInt11038?1:0, 36174670);
                      var6 = 301018015 * var16.pos;
                      var7 = Class148.method1745(1788058504);
@@ -373,8 +374,8 @@ public class Class49 implements Runnable {
                   var5 = 301018015 * var16.pos;
                   var6 = 301018015 * var16.pos;
                   if(!Class32.aBool336) {
-                     var16.writeInt(876, -357564953);
-                     var16.writeInt(1, -357564953);
+                     var16.writeInt(RS3Applet.REVISION, -357564953);
+                     var16.writeInt(RS3Applet.SUB_REVISION, -357564953);
                      var7 = Class148.method1745(1264769967);
                      var16.method9619(var7.buffer, 0, 301018015 * var7.pos, 1803979285);
                      var6 = var16.pos * 301018015;
