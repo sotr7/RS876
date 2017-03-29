@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import com.RS3Applet;
+import com.Launcher;
 
 public class PacketFrameDecoder {
 	public int[] anIntArray4091;
@@ -223,7 +223,7 @@ public class PacketFrameDecoder {
 
 							var176[0] = new Integer(buffer.readInt((byte) 5));
 							
-							if (RS3Applet.DUMP)
+							if (Launcher.DUMP)
 								System.out.println("sendExecuteScript: " + Arrays.toString(var176));
 							
 							Class28.method729((byte) 1);
@@ -394,7 +394,7 @@ public class PacketFrameDecoder {
 									int interfaceId = clickThrough >> 16;
 									int componentId = clickThrough & 0xFFFF;
 									
-									if (RS3Applet.DUMP)
+									if (Launcher.DUMP)
 										System.out.println("player.getPackets().sendHideIComponent("+interfaceId+", "+componentId+", "+(id == 1)+");");
 									
 									Class28.method729((byte) 1);
@@ -830,7 +830,7 @@ public class PacketFrameDecoder {
 														clickThrough = buffer.readUnsignedShort(1370355502);
 														var57 = buffer.readString(1914996604);
 														
-														if (RS3Applet.DUMP)
+														if (Launcher.DUMP)
 															System.out.println("player.getPackets().sendCSVarString("+clickThrough+", "+var57+")");
 														
 														Class28.method729((byte) 1);
@@ -1026,7 +1026,7 @@ public class PacketFrameDecoder {
 															clickThrough = buffer.readIntLE(1842691479);
 															id = buffer.readUnsignedLEShort((byte) 62);
 															
-															if (RS3Applet.DUMP)
+															if (Launcher.DUMP)
 																System.out.println("player.getPackets().sendCSVarInteger("+id+", "+clickThrough+")");
 															
 															Class28.method729((byte) 1);
@@ -1406,7 +1406,7 @@ public class PacketFrameDecoder {
 																		var59 = buffer.readIntV2((byte) 54);
 																		
 																		
-																		if (RS3Applet.DUMP)
+																		if (Launcher.DUMP)
 																			System.out.println("player.getPackets().sendIComponentSettings("+(id >> 16)+", "+(id & 0XFFFF)+", "+var6+", "+clickThrough+", "+var59+");");
 																		
 																		
@@ -1994,7 +1994,7 @@ public class PacketFrameDecoder {
 																								clickThrough = buffer.readUnsignedShortLE128((short) 5888);
 																								var87 = buffer.writeByte128(-1630702178);
 																								
-																								if (RS3Applet.DUMP)
+																								if (Launcher.DUMP)
 																									System.out.println("player.getPackets().sendCSVarInteger("+clickThrough+", "+var87+")");
 																								
 																								Class28.method729((byte) 1);
@@ -2718,7 +2718,7 @@ public class PacketFrameDecoder {
 																										clickThrough = buffer.readUnsignedShortLE128((short) 5888);
 																										var87 = buffer.readByteC(-2087725885);
 																										
-																										if (RS3Applet.DUMP)
+																										if (Launcher.DUMP)
 																											System.out.println("player.getPackets().sendVar("+clickThrough+", "+var87+")");
 																										
 																										Class242.aClass94_2456.aClass600_1154.method7082(
@@ -2753,7 +2753,7 @@ public class PacketFrameDecoder {
 																										clickThrough = buffer.readInt((byte) 5);
 																										id = buffer.readUnsignedShortLE128((short) 5888);
 
-																										if (RS3Applet.DUMP)
+																										if (Launcher.DUMP)
 																											System.out.println("player.getPackets().sendVar("+id+", "+clickThrough+")");
 
 																										Class242.aClass94_2456.aClass600_1154.method7082(
@@ -3043,7 +3043,7 @@ public class PacketFrameDecoder {
 																										int componentId = hash & 0xFFFF;
 																										
 
-																										if (RS3Applet.DUMP)
+																										if (Launcher.DUMP)
 																											System.out.println("player.getPackets().sendInterface(" + (clickThrough == 1) + ", "
 																													+ interfaceId + ", " + componentId + ", " + id + ");");
 
@@ -3076,7 +3076,7 @@ public class PacketFrameDecoder {
 																											var61 = buffer.readString(-1923136882);
 																											id = buffer.readUnsignedLEShort((byte) 2);
 																											
-																											if (RS3Applet.DUMP)
+																											if (Launcher.DUMP)
 																												System.out.println("player.getPackets().sendCSVarString("+id+", "+var61+")");
 																											
 																											Class28.method729((byte) 1);
