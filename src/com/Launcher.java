@@ -104,15 +104,30 @@ public class Launcher extends Applet implements AppletStub {
 			+ "/jagexcache/nocturne/properties.json";
 
 	/**
+	 * Revision
+	 */
+	public static int REVISION = 876;
+
+	/**
+	 * Build
+	 */
+	public static int SUB_REVISION = 1;
+
+	/**
 	 * Connecting to Nocturne or localhost
 	 */
 	public static boolean CONNECTEDNOCTURNE = false;
 
 	/**
+	 * Dump or not
+	 */
+	public static boolean DUMP = false;
+
+	/**
 	 * Selects the IP
 	 */
 	public static String HOST_ADDRESS = CONNECTEDNOCTURNE ? "world1.nocturne3.org"
-			: "127.0.0.1";
+			: "104.155.26.178";
 
 	/**
 	 * The parameters of the client.
@@ -181,8 +196,7 @@ public class Launcher extends Applet implements AppletStub {
 						new File("nocturne_"
 								+ webJsonObject.get("version").getAsDouble()
 								+ ".jar"));
-			} else
-				System.err.println("nope");
+			}
 			return;
 		}
 		nocturne.setParamters();
@@ -259,7 +273,7 @@ public class Launcher extends Applet implements AppletStub {
 		int width = gd.getDisplayMode().getWidth() / 2 + 100;
 		int height = gd.getDisplayMode().getHeight() - 150;
 
-		nocturneFrame = new JFrame("Nocturne - 876");
+		nocturneFrame = new JFrame("Nocturne - " + REVISION);
 		nocturneFrame.add(this);
 		nocturneFrame.setVisible(true);
 		nocturneFrame.setMinimumSize(new Dimension(width / 2, height / 2));

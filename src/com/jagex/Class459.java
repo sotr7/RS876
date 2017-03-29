@@ -28,7 +28,7 @@ public class Class459 {
 			throw new RuntimeException();
 		} else {
 			boolean aBoolean13199 = true;
-			if (aBoolean13199) {
+			if (!aBoolean13199) {
 				byte[] var14 = Class200.method2872(var1.buffer, 5, 301018015
 						* var1.pos - var5.length - 5, -1542931636);
 

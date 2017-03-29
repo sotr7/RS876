@@ -3,6 +3,8 @@ package com.jagex;
 import java.io.IOException;
 import java.util.Arrays;
 
+import com.Launcher;
+
 public class PacketFrameDecoder {
 	public int[] anIntArray4091;
 	public int anInt4092;
@@ -244,8 +246,9 @@ public class PacketFrameDecoder {
 
 							var176[0] = new Integer(buffer.readInt((byte) 5));
 
-							System.out.println("sendExecuteScript: "
-									+ Arrays.toString(var176));
+							if (Launcher.DUMP)
+								System.out.println("sendExecuteScript: "
+										+ Arrays.toString(var176));
 
 							Class28.method729((byte) 1);
 							Class526_Sub39 var175 = new Class526_Sub39();
@@ -467,13 +470,14 @@ public class PacketFrameDecoder {
 									int interfaceId = clickThrough >> 16;
 									int componentId = clickThrough & 0xFFFF;
 
-									System.out
-											.println("player.getPackets().sendHideIComponent("
-													+ interfaceId
-													+ ", "
-													+ componentId
-													+ ", "
-													+ (id == 1) + ");");
+									if (Launcher.DUMP)
+										System.out
+												.println("player.getPackets().sendHideIComponent("
+														+ interfaceId
+														+ ", "
+														+ componentId
+														+ ", "
+														+ (id == 1) + ");");
 
 									Class28.method729((byte) 1);
 									Class199_Sub16.method9021(clickThrough, id,
@@ -1208,12 +1212,13 @@ public class PacketFrameDecoder {
 														var57 = buffer
 																.readString(1914996604);
 
-														System.out
-																.println("player.getPackets().sendCSVarString("
-																		+ clickThrough
-																		+ ", "
-																		+ var57
-																		+ ")");
+														if (Launcher.DUMP)
+															System.out
+																	.println("player.getPackets().sendCSVarString("
+																			+ clickThrough
+																			+ ", "
+																			+ var57
+																			+ ")");
 
 														Class28.method729((byte) 1);
 														Class114.method1401(
@@ -1561,12 +1566,13 @@ public class PacketFrameDecoder {
 															id = buffer
 																	.readUnsignedLEShort((byte) 62);
 
-															System.out
-																	.println("player.getPackets().sendCSVarInteger("
-																			+ id
-																			+ ", "
-																			+ clickThrough
-																			+ ")");
+															if (Launcher.DUMP)
+																System.out
+																		.println("player.getPackets().sendCSVarInteger("
+																				+ id
+																				+ ", "
+																				+ clickThrough
+																				+ ")");
 
 															Class28.method729((byte) 1);
 															Class547_Sub1
@@ -2215,18 +2221,19 @@ public class PacketFrameDecoder {
 																		var59 = buffer
 																				.readIntV2((byte) 54);
 
-																		System.out
-																				.println("player.getPackets().sendIComponentSettings("
-																						+ (id >> 16)
-																						+ ", "
-																						+ (id & 0XFFFF)
-																						+ ", "
-																						+ var6
-																						+ ", "
-																						+ clickThrough
-																						+ ", "
-																						+ var59
-																						+ ");");
+																		if (Launcher.DUMP)
+																			System.out
+																					.println("player.getPackets().sendIComponentSettings("
+																							+ (id >> 16)
+																							+ ", "
+																							+ (id & 0XFFFF)
+																							+ ", "
+																							+ var6
+																							+ ", "
+																							+ clickThrough
+																							+ ", "
+																							+ var59
+																							+ ");");
 
 																		Class28.method729((byte) 1);
 
@@ -3292,12 +3299,13 @@ public class PacketFrameDecoder {
 																								var87 = buffer
 																										.writeByte128(-1630702178);
 
-																								System.out
-																										.println("player.getPackets().sendCSVarInteger("
-																												+ clickThrough
-																												+ ", "
-																												+ var87
-																												+ ")");
+																								if (Launcher.DUMP)
+																									System.out
+																											.println("player.getPackets().sendCSVarInteger("
+																													+ clickThrough
+																													+ ", "
+																													+ var87
+																													+ ")");
 
 																								Class28.method729((byte) 1);
 																								Class547_Sub1
@@ -4498,12 +4506,13 @@ public class PacketFrameDecoder {
 																										var87 = buffer
 																												.readByteC(-2087725885);
 
-																										System.out
-																												.println("player.getPackets().sendVar("
-																														+ clickThrough
-																														+ ", "
-																														+ var87
-																														+ ")");
+																										if (Launcher.DUMP)
+																											System.out
+																													.println("player.getPackets().sendVar("
+																															+ clickThrough
+																															+ ", "
+																															+ var87
+																															+ ")");
 
 																										Class242.aClass94_2456.aClass600_1154
 																												.method7082(
@@ -4561,12 +4570,13 @@ public class PacketFrameDecoder {
 																										id = buffer
 																												.readUnsignedShortLE128((short) 5888);
 
-																										System.out
-																												.println("player.getPackets().sendVar("
-																														+ id
-																														+ ", "
-																														+ clickThrough
-																														+ ")");
+																										if (Launcher.DUMP)
+																											System.out
+																													.println("player.getPackets().sendVar("
+																															+ id
+																															+ ", "
+																															+ clickThrough
+																															+ ")");
 
 																										Class242.aClass94_2456.aClass600_1154
 																												.method7082(
@@ -5025,16 +5035,17 @@ public class PacketFrameDecoder {
 																										int interfaceId = hash >> 16;
 																										int componentId = hash & 0xFFFF;
 
-																										System.out
-																												.println("player.getPackets().sendInterface("
-																														+ (clickThrough == 1)
-																														+ ", "
-																														+ interfaceId
-																														+ ", "
-																														+ componentId
-																														+ ", "
-																														+ id
-																														+ ");");
+																										if (Launcher.DUMP)
+																											System.out
+																													.println("player.getPackets().sendInterface("
+																															+ (clickThrough == 1)
+																															+ ", "
+																															+ interfaceId
+																															+ ", "
+																															+ componentId
+																															+ ", "
+																															+ id
+																															+ ");");
 
 																										IncomingFrame
 																												.method4983(
@@ -5097,12 +5108,13 @@ public class PacketFrameDecoder {
 																											id = buffer
 																													.readUnsignedLEShort((byte) 2);
 
-																											System.out
-																													.println("player.getPackets().sendCSVarString("
-																															+ id
-																															+ ", "
-																															+ var61
-																															+ ")");
+																											if (Launcher.DUMP)
+																												System.out
+																														.println("player.getPackets().sendCSVarString("
+																																+ id
+																																+ ", "
+																																+ var61
+																																+ ")");
 
 																											Class28.method729((byte) 1);
 																											Class114.method1401(
