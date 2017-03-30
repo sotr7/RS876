@@ -137,7 +137,7 @@ public class Launcher extends Applet implements AppletStub {
 	/**
 	 * The current frame of the client application.
 	 */
-	public JFrame nocturneFrame = null;
+	public static JFrame nocturneFrame = null;
 
 	/**
 	 * The main entry point of the current application.
@@ -182,9 +182,11 @@ public class Launcher extends Applet implements AppletStub {
 			if (JOptionPane
 					.showConfirmDialog(
 							nocturne.nocturneFrame,
-							"You have an outdated version of the client, in order to proceed, you need the newest client, download it?") == 0) {
+							"You have an outdated version of the client, in order to proceed, you need the newest client, download it?",
+							"Update available", JOptionPane.INFORMATION_MESSAGE) == 0) {
 				JOptionPane.showMessageDialog(nocturne.nocturneFrame,
-						"Starting to download the new client.");
+						"Starting to download the new client.", "Downloading",
+						JOptionPane.INFORMATION_MESSAGE);
 				ReadableByteChannel rbc = Channels.newChannel(new URL(
 						webJsonObject.get("downloadURL").getAsString())
 						.openStream());
