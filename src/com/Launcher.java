@@ -2,6 +2,7 @@ package com;
 
 import java.applet.Applet;
 import java.applet.AppletStub;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -24,6 +25,8 @@ import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Path;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -48,6 +51,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import com.google.gson.Gson;
@@ -96,24 +100,34 @@ public class Launcher extends Applet implements AppletStub {
 	/**
 	 * Path location
 	 */
-	private static String location = System.getProperty("user.home")
+	private static String LOCATION = System.getProperty("user.home")
 			+ "/jagexcache/nocturne/properties.json";
+
+	/**
+	 * Revision
+	 */
+	public static int REVISION = 876;
+
+	/**
+	 * Build
+	 */
+	public static int SUB_REVISION = 1;
 
 	/**
 	 * Connecting to Nocturne or localhost
 	 */
-	public static boolean connectNocturne = true;
+	public static boolean CONNECTEDNOCTURNE = false;
+
+	/**
+	 * Dump or not
+	 */
+	public static boolean DUMP = false;
 
 	/**
 	 * Selects the IP
 	 */
-	public static String HOST_ADDRESS = connectNocturne ? "192.99.38.108"
-			: "127.0.0.1";
-
-	/**
-	 * Whether or not to dump info such as vars
-	 */
-	public static boolean DUMP = !connectNocturne;
+	public static String HOST_ADDRESS = CONNECTEDNOCTURNE ? "world1.nocturne3.org"
+			: "192.99.38.108";
 
 	/**
 	 * The parameters of the client.
@@ -123,7 +137,7 @@ public class Launcher extends Applet implements AppletStub {
 	/**
 	 * The current frame of the client application.
 	 */
-	public JFrame nocturneFrame = null;
+	public static JFrame nocturneFrame = null;
 
 	/**
 	 * The main entry point of the current application.
@@ -136,11 +150,11 @@ public class Launcher extends Applet implements AppletStub {
 	public static void main(String... args) throws MalformedURLException,
 			IOException {
 		gson = new GsonBuilder().setLenient().create();
-		if (!new File(location).exists())
+		if (!new File(LOCATION).exists())
 			createProperties(true);
 		try {
 			reader = new BufferedReader(new InputStreamReader(
-					new FileInputStream(location)));
+					new FileInputStream(LOCATION)));
 			jsonObject = gson.fromJson(reader, JsonObject.class);
 
 			webReader = new BufferedReader(new InputStreamReader(new URL(
@@ -151,14 +165,48 @@ public class Launcher extends Applet implements AppletStub {
 			System.err.println("Error loading properties");
 		}
 		Launcher nocturne = new Launcher();
-		if (jsonObject.get("firstTime").getAsBoolean())
-			createProperties(false);
+		if (new File(LOCATION).exists()
+				&& jsonObject.get("version").getAsDouble() != webJsonObject
+						.get("version").getAsDouble()) {
+			new File(LOCATION).delete();
+			createProperties(true);
+			System.out
+					.println("Versions are not correct and file already exists.");
+		}
+		if (jsonObject.get("version").getAsDouble() != webJsonObject.get(
+				"version").getAsDouble()
+				&& !new File("nocturne_"
+						+ webJsonObject.get("version").getAsDouble() + ".jar")
+						.exists()) {
+			System.err.println("Outdated version.");
+			if (JOptionPane
+					.showConfirmDialog(
+							nocturne.nocturneFrame,
+							"You have an outdated version of the client, in order to proceed, you need the newest client, download it?",
+							"Update available", JOptionPane.INFORMATION_MESSAGE) == 0) {
+				JOptionPane.showMessageDialog(nocturne.nocturneFrame,
+						"Starting to download the new client.", "Downloading",
+						JOptionPane.INFORMATION_MESSAGE);
+				ReadableByteChannel rbc = Channels.newChannel(new URL(
+						webJsonObject.get("downloadURL").getAsString())
+						.openStream());
+				FileOutputStream fos = new FileOutputStream("nocturne_"
+						+ webJsonObject.get("version").getAsDouble() + ".jar");
+				fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+
+				Desktop.getDesktop().open(
+						new File("nocturne_"
+								+ webJsonObject.get("version").getAsDouble()
+								+ ".jar"));
+			}
+			return;
+		}
 		nocturne.setParamters();
 		nocturne.openFrame();
 		nocturne.startClient();
 		nocturne.nocturneFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		InputStream imageStream = Launcher.class
-				.getResourceAsStream("favicon.png");
+				.getResourceAsStream("logo.png");
 		BufferedImage bufferedImage = ImageIO.read(imageStream);
 		nocturne.nocturneFrame.setIconImage(bufferedImage);
 		nocturne.nocturneFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -191,8 +239,12 @@ public class Launcher extends Applet implements AppletStub {
 	private static void createProperties(boolean b) throws IOException {
 		new File(System.getProperty("user.home") + "/jagexcache/nocturne")
 				.mkdirs();
+		webReader = new BufferedReader(new InputStreamReader(new URL(
+				"http://nocturne3.org/configuration.json").openStream()));
+		webJsonObject = gson.fromJson(webReader, JsonObject.class);
+
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream(location), "utf-8"))) {
+				new FileOutputStream(LOCATION), "utf-8"))) {
 			writer.write("/* Copyright © 2017 Nocturne */\n");
 			writer.write("/* @author: Pax M */\n");
 			writer.write("/* These are the the variables that changes the gameplay, please don't modify these */\n");
@@ -223,7 +275,7 @@ public class Launcher extends Applet implements AppletStub {
 		int width = gd.getDisplayMode().getWidth() / 2 + 100;
 		int height = gd.getDisplayMode().getHeight() - 150;
 
-		nocturneFrame = new JFrame("Nocturne - 876");
+		nocturneFrame = new JFrame("Nocturne - " + REVISION);
 		nocturneFrame.add(this);
 		nocturneFrame.setVisible(true);
 		nocturneFrame.setMinimumSize(new Dimension(width / 2, height / 2));
