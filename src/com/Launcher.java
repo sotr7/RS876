@@ -107,7 +107,7 @@ public class Launcher extends Applet implements AppletStub {
 	/**
 	 * Selects the IP
 	 */
-	public static String HOST_ADDRESS = connectNocturne ? "127.0.0.1"
+	public static String HOST_ADDRESS = connectNocturne ? "192.99.38.108"
 			: "127.0.0.1";
 
 	/**
